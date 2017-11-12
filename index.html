@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="demo1">
+        <div id="demo1_description">
+            <h1>
+                DEMO 1
+            </h1>
+            <p> Here you can see how much does increasing/decreasing your defence will effect the dmg you take.</p>
+            <p> The way it works is: </p> 
+            <p> STEP 1: Give your actual defence and the dmg you take. it can be some real example like
+                how much dmg you took from elemental leader aoe, but you could also give some arbirtrary number, say: 10.000,
+                just to see the effect procetage wise.
+            </p>
+            <p>
+                STEP 2: Look how the dmg you take changes when you change your defence value
+            </p>
+        </div>
+        <div id="demo1_step1">
+            <h2>
+                STEP 1:
+            </h2>
+            <p>DEF: <input type="number" class="numberInput" id="def"> (def you had during this attack)</p>
+            <p>DMG: <input type="number" class="numberInput" id="dmg"> (dmg you taken from this attack)</p>
+        </div>
+        <div id="demo1_step2">
+            <h2>
+                STEP 2:
+            </h2>
+            <p id="dmgTaken"></p>
+            <div>
+                <div id="rangeInput">
+                    <input type="range" class="slider" id="myRange">
+                </div>
+                <div id="numberInput">
+                    <input type="number" class="numberInput" id="myNumber">
+                </div>
+                <p>with this &#8593 defence   </p>
+            </div>
+            <p id="defenceToGain"></p>
+        </div>
+    </div>
+    <div id="formula">
+        <h1>
+            Formula used to aproximate shows values:
+        </h1>
+        <img src="formula.png" alt="Formula">
+    </div>
+</body>
+
+<script src="script.js"> </script>
+
+</html>
