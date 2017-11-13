@@ -17,7 +17,8 @@
               <i>dmgFun(def, base_dmg, var1, ...) = defFun(def) * dmgFun_noDef(base_dmg, var1,...)</i>
         </p>
         <p>
-            Knowing that we can now try to figure out what that <i>defFun(def)</i> is. So I've chosen arbitrary mob - Guardian of Light and
+            Knowing that we can now try to figure out what that <i>defFun(def)</i> is. 
+            So I've chosen arbitrary mob - Guardian of Light and
             mapped the dmgTaken from mob to the defence I had during the hit.
         </p>
         <div class="centerImg">
@@ -35,7 +36,8 @@
             Fortunataly it's not a problem, because we can aproximate it using ln(x) as shown on the graph.<br/>
 
 
-            Now thats not the end of it. This function only calculates dmg you take from Guardian of Light. Lets call this function GuardDmg(def). So <br/>
+            Now thats not the end of it. This function only calculates dmg you take from Guardian of Light. 
+            Lets call this function GuardDmg(def). So <br/>
         </p>
         <div class="centerImg">
             <img src="definicja1.png"/>
@@ -48,7 +50,10 @@
             <img src="definicja2.png"/>
         </div>
         <p>
-            We don't know eaither of the values to calculate g, but what we can see is that no matter what def we pick it is constant. So every mob has its own g values for each of its attack. The Guardian of Light has g = 1; mob that hits 3 times harder will have g = 3 and so on. So all we need to calculate dmg of certain mob's attack is to get hit by it once and use info about the dmg we took and defence we had.
+            We don't know eaither of the values to calculate g, but what we can see is that no matter what def we 
+            pick it is constant. So every mob has its own g values for each of its attack. The Guardian of Light 
+            has g = 1; mob that hits 3 times harder will have g = 3 and so on. So all we need to calculate dmg of 
+            certain mob's attack is to get hit by it once and use info about the dmg we took and defence we had.
         </p>
         <img src="obliczenia1.png"/>
         <p>
@@ -65,7 +70,8 @@
         <p>
             Which is the final formula, where: <br />
             <i>Dmg(def)</i> - function that says what dmg will you take from certain attack depending on your defence <br />
-            <i>dmgTaken, defence</i> - damage you took from the attack you are intrested in and the defence value you had at that moment. <br />
+            <i>dmgTaken, defence</i> - damage you took from the attack you are intrested in and the defence value you 
+            had at that moment. <br />
             <i>k</i> - defence transformation constant
         </p>
     </div>
