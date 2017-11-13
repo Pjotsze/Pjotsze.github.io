@@ -27,8 +27,8 @@
     var defWzr = 0;
     var dmgWzr = 0;
     
-    var defWzr = 0;
-    var dmgWzr = 0;
+    var defWzrVis = 0;
+    var dmgWzrVis = 0;
     
     var istniejeVisualizacja = false;
     
@@ -42,19 +42,19 @@
     c.addEventListener('mousemove', function(evt) {
         if(istniejeVisualizacja){
             var mousePos = getMousePos(c, evt);
-            ctx.clearRect(550, 0, c.width, c.height);
+            ctx.clearRect(520, 0, c.width, c.height);
             if(mousePos.x >= 50 && mousePos.x <= 450 && mousePos.y >= 50 && mousePos.y <= 450){
-                if(DMG(minDef + krokDef*(mousePos.x-50), defWzr, dmgWzr) < minHp+krokHp*(mousePos.y-50)){
+                if(DMG(minDef + krokDef*(mousePos.x-50), defWzrVis, dmgWzrVis) < minHp+krokHp*(mousePos.y-50)){
                     ctx.fillStyle = zielony;
                 }else{
                     ctx.fillStyle = czerwony;
                 }
                 
                 ctx.font = "30px Arial";
-                ctx.fillText("HP:",550,220);
-                ctx.fillText("DEFENCE:",550,280);
-                ctx.fillText(parseInt(minHp+krokHp*(mousePos.y-50)),730,220);
-                ctx.fillText(parseInt(minDef+krokDef*(mousePos.x-50)),730,280);
+                ctx.fillText("HP:",520,220);
+                ctx.fillText("DEFENCE:",520,280);
+                ctx.fillText(parseInt(minHp+krokHp*(mousePos.y-50)),680,220);
+                ctx.fillText(parseInt(minDef+krokDef*(mousePos.x-50)),680,280);
             }
         }
     }, false);
@@ -144,6 +144,8 @@
     
     var przyciskVisualizacja = document.getElementById("przyciskVisualizacja");
     przyciskVisualizacja.onclick = function() {
+        dmgWzrVis = dmgWzr;
+        defWzrVis = defWzr;
         istniejeVisualizacja = true;
         minHp  = 1000.0;
         minDef = 100.0;
@@ -157,8 +159,8 @@
         ctx.clearRect(0, 0, c.width, c.height);
         ctx.font = "30px Arial";
         ctx.fillStyle = czarny;
-        ctx.fillText("Defence",200,30);
-        ctx.fillText("Hp",     10,250);
+        ctx.fillText("Defence",200,40);
+        ctx.fillText("Hp",     5,250);
         
         for(var i = 50; i <= 450; i+=1){
             for(var j = 50; j <= 450; j+=1){
