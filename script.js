@@ -6,9 +6,35 @@
         };
     }
     
+    function plusMinus(wartosc){
+        if(wartosc >= 0){
+            return "+";
+        }
+        return "";
+    }
+    
     var a = -2144.5;
     var b = 19312.79;
     var k = b/a;
+    
+    function DMG(def, defence, dmgTaken){
+        return ((Math.log(def) + k)/(Math.log(defence) + k))*dmgTaken;
+    }
+    
+    var dmgTaken = document.getElementById("dmgTaken");
+    var defenceToGain = document.getElementById("defenceToGain");
+    
+    var defSpr = 0;
+    var defWzr = 0;
+    var dmgWzr = 0;
+    
+    function updateDamage(){
+        var dmgTakenValue = DMG(defSpr, defWzr, dmgWzr);
+        dmgTaken.innerHTML = "You would take: " + dmgTakenValue +" damage";
+        var deltaDef = defSpr-defWzr;
+        var deltaDmg = dmgTakenValue - dmgWzr;
+        defenceToGain.innerHTML = "So " + plusMinus(deltaDef) + deltaDef.toPrecision(4) + " def changed dmg taken by " + deltaDmg.toPrecision(6);
+    }
     
     var minHp;
     var minDef;
@@ -19,13 +45,6 @@
     
     var minDefenceValue = 1;
     var maxDefenceValue = 3000;
-    
-    var dmgTaken = document.getElementById("dmgTaken");
-    var defenceToGain = document.getElementById("defenceToGain");
-    var defSpr = 0;
-    
-    var defWzr = 0;
-    var dmgWzr = 0;
     
     var defWzrVis = 0;
     var dmgWzrVis = 0;
@@ -58,26 +77,6 @@
             }
         }
     }, false);
-    
-    
-    function DMG(def, defence, dmgTaken){
-        return ((Math.log(def) + k)/(Math.log(defence) + k))*dmgTaken;
-    }
-    
-    function plusMinus(wartosc){
-        if(wartosc >= 0){
-            return "+";
-        }
-        return "";
-    }
-    
-    function updateDamage(){
-        var dmgTakenValue = DMG(defSpr, defWzr, dmgWzr);
-        dmgTaken.innerHTML = "You would take: " + dmgTakenValue +" damage";
-        var deltaDef = defSpr-defWzr;
-        var deltaDmg = dmgTakenValue - dmgWzr;
-        defenceToGain.innerHTML = "So " + plusMinus(deltaDef) + deltaDef.toPrecision(4) + " def changed dmg taken by " + deltaDmg.toPrecision(6);
-    }
     
     class NumberChosingObject {
         constructor(rangeInput, numberInput, minValue, maxValue) {
@@ -191,15 +190,4 @@
             } 
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
